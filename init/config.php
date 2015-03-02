@@ -12,6 +12,8 @@ mb_internal_encoding("UTF-8");
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', '1'); // error reporting should by disabled on produce server
+if(!isset($_SESSION["lang"]))
+	$_SESSION["lang"]=="sk"; // default language
 
 // Connecting the database using mysqli_safe connection
 define("DB_HOSTNAME", 'localhost');
@@ -39,5 +41,8 @@ function autoloadClass($class)
 spl_autoload_register("autoloadClass");
 
 // Start global variables
-$nav=new Navigation();
+$nav=new Navigation;
+$user=new User;
+
+global $nav;
 ?>
