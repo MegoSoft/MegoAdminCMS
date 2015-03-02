@@ -37,4 +37,7 @@ function autoloadClass($class)
 	require_once("classes/".$class.".php");
 }
 spl_autoload_register("autoloadClass");
+
+// Start global variables
+$nav=new Navigation();
 ?>
